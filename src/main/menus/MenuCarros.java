@@ -44,14 +44,37 @@ public class MenuCarros {
         System.out.println(" 0. Voltar");
     }
 
-    private void criarCarro()     { porImplementar("Criar carro"); }
-    private void listarCarros()   { porImplementar("Listar carros"); }
-    private void verDetalhes()    { porImplementar("Ver detalhes do carro"); }
-    private void colocarEmPista() { porImplementar("Colocar em pista"); }
-    private void chamarBoxes()    { porImplementar("Chamar às boxes"); }
-    private void mudarSetup()     { porImplementar("Mudar setup"); }
-    private void mudarPneus()     { porImplementar("Mudar pneus"); }
-    private void trocarPiloto()   { porImplementar("Atribuir / trocar piloto"); }
+    private void criarCarro() { 
+        porImplementar("Criar carro"); 
+    }
+    
+    private void listarCarros() { 
+        porImplementar("Listar carros"); 
+    }
+    
+    private void verDetalhes() { 
+        porImplementar("Ver detalhes do carro"); 
+    }
+    
+    private void colocarEmPista() { 
+        porImplementar("Colocar em pista"); 
+    }
+    
+    private void chamarBoxes() { 
+        porImplementar("Chamar às boxes"); 
+    }
+    
+    private void mudarSetup() { 
+        porImplementar("Mudar setup"); 
+    }
+    
+    private void mudarPneus() { 
+        porImplementar("Mudar pneus"); 
+    }
+    
+    private void trocarPiloto() { 
+        porImplementar("Atribuir / trocar piloto"); 
+    }
 
     private void porImplementar(String accao) {
         System.out.println("\uD83D\uDD27 [Carros] " + accao + " — por implementar.");

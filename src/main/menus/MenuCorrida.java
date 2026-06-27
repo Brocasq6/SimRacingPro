@@ -30,7 +30,7 @@ public class MenuCorrida {
     }
 
     private void mostrarMenu() {
-        System.out.println("\n──────── CORRIDA E SIMULAÇÃO ────────");
+        System.out.println("\n---------- CORRIDA E SIMULAÇÃO ----------");
         System.out.println(" 1. Configurar pista / sessão");
         System.out.println(" 2. Avançar 1 volta");
         System.out.println(" 3. Avançar N voltas");
@@ -38,14 +38,32 @@ public class MenuCorrida {
         System.out.println(" 5. Aplicar config. de sessão (Qual. / Race Start / SC / Full Wet)");
         System.out.println(" 6. Disparar estratégia / plano de stint");
         System.out.println(" 0. Voltar");
+        System.out.println("------------------------------------------");
     }
 
-    private void configurarPista()     { porImplementar("Configurar pista / sessão"); }
-    private void avancarVolta()        { porImplementar("Avançar 1 volta"); }
-    private void avancarVarias()       { porImplementar("Avançar N voltas"); }
-    private void estadoCorrida()       { porImplementar("Ver estado da corrida"); }
-    private void aplicarConfigSessao() { porImplementar("Aplicar configuração de sessão"); }
-    private void dispararEstrategia()  { porImplementar("Disparar estratégia / plano de stint"); }
+    private void configurarPista() { 
+        porImplementar("Configurar pista / sessão"); 
+    }
+    
+    private void avancarVolta() { 
+        porImplementar("Avançar 1 volta"); 
+    }
+    
+    private void avancarVarias() { 
+        porImplementar("Avançar N voltas"); 
+    }
+    
+    private void estadoCorrida() { 
+        porImplementar("Ver estado da corrida"); 
+    }
+    
+    private void aplicarConfigSessao() { 
+        porImplementar("Aplicar configuração de sessão"); 
+    }
+    
+    private void dispararEstrategia() { 
+        porImplementar("Disparar estratégia / plano de stint"); 
+    }
 
     private void porImplementar(String accao) {
         System.out.println("\uD83D\uDD27 [Corrida] " + accao + " — por implementar.");

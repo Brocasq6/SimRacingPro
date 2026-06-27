@@ -1,6 +1,5 @@
 package main.data.cofiguracoes;
 
-public 
- {
+public class ConfigQualifying {
     
 }

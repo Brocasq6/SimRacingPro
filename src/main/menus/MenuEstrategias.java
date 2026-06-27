@@ -39,13 +39,34 @@ public class MenuEstrategias {
         System.out.println(" 0. Voltar");
     }
 
-    private void criarEstrategia()      { porImplementar("Criar estratégia"); }
-    private void listarEstrategias()    { porImplementar("Listar estratégias"); }
-    private void criarPlanoStint()      { porImplementar("Criar plano de stint"); }
-    private void listarPlanosStint()    { porImplementar("Listar planos de stint"); }
-    private void criarConfigSessao()    { porImplementar("Criar configuração de sessão"); }
-    private void listarConfigSessao()   { porImplementar("Listar configurações de sessão"); }
-    private void sugestoesAutomaticas() { porImplementar("Sugestões automáticas"); }
+    
+    private void criarEstrategia() { 
+        porImplementar("Criar estratégia"); 
+    }
+    
+    private void listarEstrategias() { 
+        porImplementar("Listar estratégias"); 
+    }
+    
+    private void criarPlanoStint() { 
+        porImplementar("Criar plano de stint"); 
+    }
+    
+    private void listarPlanosStint() { 
+        porImplementar("Listar planos de stint"); 
+    }
+    
+    private void criarConfigSessao() { 
+        porImplementar("Criar configuração de sessão"); 
+    }
+    
+    private void listarConfigSessao() { 
+        porImplementar("Listar configurações de sessão"); 
+    }
+    
+    private void sugestoesAutomaticas() { 
+        porImplementar("Sugestões automáticas"); 
+    }
 
     private void porImplementar(String accao) {
         System.out.println("\uD83D\uDD27 [Estratégias] " + accao + " — por implementar.");

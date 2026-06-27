@@ -40,12 +40,30 @@ public class MenuEquipas {
         System.out.println(" 0. Voltar");
     }
 
-    private void criarEquipa()     { porImplementar("Criar equipa"); }
-    private void listarEquipas()   { porImplementar("Listar equipas"); }
-    private void verDetalhes()     { porImplementar("Ver detalhes de equipa"); }
-    private void registarPiloto()  { porImplementar("Registar piloto"); }
-    private void associarCarro()   { porImplementar("Associar carro a equipa"); }
-    private void removerEntidade() { porImplementar("Remover piloto / carro"); }
+    private void criarEquipa() { 
+        porImplementar("Criar equipa"); 
+    }
+    
+    private void listarEquipas() { 
+        porImplementar("Listar equipas"); 
+    }
+    
+    private void verDetalhes() { 
+        porImplementar("Ver detalhes de equipa"); 
+    }
+    
+    private void registarPiloto() { 
+        porImplementar("Registar piloto"); 
+    }
+    
+    private void associarCarro() { 
+        porImplementar("Associar carro a equipa"); 
+    }
+    
+    private void removerEntidade() { 
+        porImplementar("Remover piloto / carro"); 
+    }
+
 
     private void porImplementar(String accao) {
         System.out.println("\uD83D\uDD27 [Equipas] " + accao + " — por implementar.");
