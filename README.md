@@ -128,10 +128,6 @@ Na primeira execução, escolher no menu principal:
 
 [![GitHub](https://img.shields.io/badge/GitHub-Brocasq6-181717?style=flat&logo=github)](https://github.com/Brocasq6)
 
-## 📄 Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
-
 ---
 
 <div align="center">
