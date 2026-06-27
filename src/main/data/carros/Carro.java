@@ -34,8 +34,8 @@ public abstract class Carro implements Serializable, Cloneable {
     }
 
     public Carro(String id, String marca, String modelo,
-                 double consumoMedio, double desgasteMedioPneus,
-                 double capacidadeDeposito) {
+                    double consumoMedio, double desgasteMedioPneus,
+                    double capacidadeDeposito) {
         // a implementar
         // Construtor principal. Carro arranca na GARAGEM, com 4 pneus
         // slick novos e depósito vazio. Validar argumentos (id não vazio,
