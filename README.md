@@ -68,20 +68,99 @@ Os utilizadores podem operar individualmente cada carro ou automatizar comportam
 SimRacingPro/
 ├── src/
 │   ├── main/
-│   │   ├── data/              # Classes de domínio
-│   │   │   ├── carros/        # Hierarquia de carros (GT3, LMP2, ...)
-│   │   │   ├── equipas/       # Equipas, pilotos, utilizadores
-│   │   │   ├── corrida/       # Simulação, voltas, sessões
-│   │   │   ├── estrategias/   # Estratégias e planos de stint
-│   │   │   └── configuracoes/ # Configurações de sessão
-│   │   ├── controllers/       # Lógica de aplicação
-│   │   ├── menus/             # Interface de texto
-│   │   └── persistencia/      # Load/save em binário
-│   └── tests/                 # Testes unitários
-├── data/                      # Estado de teste para carregar
+│   │   ├── Main.java
+│   │   │
+│   │   ├── data/                          # Domínio (POJOs + lógica de negócio)
+│   │   │   ├── carros/
+│   │   │   │   ├── Carro.java             # abstract — base da hierarquia
+│   │   │   │   ├── GT3.java
+│   │   │   │   ├── GT4.java
+│   │   │   │   ├── LMP2.java
+│   │   │   │   ├── Hypercar.java          # com lógica híbrida (override)
+│   │   │   │   ├── TCR.java
+│   │   │   │   ├── Pneu.java
+│   │   │   │   ├── TipoPneu.java          # enum: SLICK, INTER, WET
+│   │   │   │   ├── EstadoCarro.java       # enum: BOX, PISTA, AVARIADO
+│   │   │   │   └── CarroFactory.java      # Factory para criar por categoria
+│   │   │   │
+│   │   │   ├── equipas/
+│   │   │   │   ├── Equipa.java
+│   │   │   │   ├── Piloto.java
+│   │   │   │   ├── Utilizador.java        # abstract
+│   │   │   │   ├── ChefeEquipa.java       # admin
+│   │   │   │   └── EngenheiroCorrida.java # operador
+│   │   │   │
+│   │   │   ├── corrida/
+│   │   │   │   ├── Corrida.java           # "motor" da simulação
+│   │   │   │   ├── Volta.java
+│   │   │   │   ├── Stint.java
+│   │   │   │   ├── Sessao.java
+│   │   │   │   ├── Pista.java
+│   │   │   │   └── CondicoesMeteo.java    # enum: SECO, CHUVA, MISTO
+│   │   │   │
+│   │   │   ├── estrategias/
+│   │   │   │   ├── Estrategia.java        # interface funcional
+│   │   │   │   ├── EstrategiaPit.java
+│   │   │   │   ├── EstrategiaMudancaPneus.java
+│   │   │   │   ├── PlanoStint.java
+│   │   │   │   └── Ritmo.java             # enum: PUSH, NORMAL, FUEL_SAVING
+│   │   │   │
+│   │   │   ├── configuracoes/
+│   │   │   │   ├── ConfiguracaoSessao.java # abstract
+│   │   │   │   ├── ConfigQualifying.java
+│   │   │   │   ├── ConfigRaceStart.java
+│   │   │   │   ├── ConfigSafetyCar.java
+│   │   │   │   └── ConfigFullWet.java
+│   │   │   │
+│   │   │   └── estatisticas/
+│   │   │       ├── EstatisticasEquipa.java
+│   │   │       ├── EstatisticasPiloto.java
+│   │   │       └── HistoricoCorridas.java
+│   │   │
+│   │   ├── controllers/                   # Lógica entre menus ↔ domínio
+│   │   │   ├── AppController.java         # estado global da aplicação
+│   │   │   ├── EquipaController.java
+│   │   │   ├── CarroController.java
+│   │   │   ├── CorridaController.java
+│   │   │   └── EstatisticasController.java
+│   │   │
+│   │   ├── menus/                         # Interface texto
+│   │   │   ├── MenuPrincipal.java
+│   │   │   ├── MenuEquipas.java
+│   │   │   ├── MenuCarros.java
+│   │   │   ├── MenuCorrida.java
+│   │   │   ├── MenuEstrategias.java
+│   │   │   └── utils/
+│   │   │       └── Input.java             # leitura segura do Scanner
+│   │   │
+│   │   ├── persistencia/
+│   │   │   ├── GestorPersistencia.java    # save/load com ObjectStreams
+│   │   │   └── EstadoApp.java             # wrapper Serializable do estado
+│   │   │
+│   │   └── exceptions/
+│   │       ├── CarroNaoEncontradoException.java
+│   │       ├── EquipaNaoEncontradaException.java
+│   │       ├── PilotoIndisponivelException.java
+│   │       └── EstrategiaInvalidaException.java
+│   │
+│   └── tests/                             # JUnit
+│       ├── CarroTest.java
+│       ├── EquipaTest.java
+│       ├── CorridaTest.java
+│       └── EstrategiaTest.java
+│
+├── data/
+│   └── estado_teste.dat                   # estado pré-carregado para testar
+│
 ├── docs/
 │   ├── diagrama-classes.png
+│   ├── enunciado.pdf
 │   └── relatorio.pdf
+│
+├── lib/                                   # JUnit jars (se não usares Maven)
+├── bin/                                   # compilados (ignorado pelo git)
+├── Makefile
+├── .gitignore
 └── README.md
 ```
 
