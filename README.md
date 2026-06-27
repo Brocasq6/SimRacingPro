@@ -124,7 +124,7 @@ Na primeira execução, escolher no menu principal:
 
 ## 👤 Autor
 
-**Bruno Freitas (Bino)** — Licenciatura em Engenharia Informática @ Universidade do Minho
+**Bruno Freitas (Bino)** — Licenciatura em Ciências da Computação @ Universidade do Minho
 
 [![GitHub](https://img.shields.io/badge/GitHub-Brocasq6-181717?style=flat&logo=github)](https://github.com/Brocasq6)
 
