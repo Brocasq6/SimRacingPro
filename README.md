@@ -10,7 +10,7 @@ Projeto prático de **Programação Orientada aos Objectos** desenvolvido durant
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 ![Java](https://img.shields.io/badge/Java-21+-orange)
-![License](https://img.shields.io/badge/license-MIT-blue)
+
 
 </div>
 
