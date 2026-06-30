@@ -33,79 +33,151 @@ public abstract class Carro implements Serializable, Cloneable {
         // neutros. Útil para deserialização.
     }
 
-    public Carro(String id, String marca, String modelo,
-                    double consumoMedio, double desgasteMedioPneus,
-                    double capacidadeDeposito) {
-        // a implementar
-        // Construtor principal. Carro arranca na GARAGEM, com 4 pneus
-        // slick novos e depósito vazio. Validar argumentos (id não vazio,
-        // consumos >= 0, capacidade > 0).
+    public Carro(String id, String marca, String modelo,double consumoMedio, double desgasteMedioPneus,double capacidadeDeposito) {
+
     }
 
     public Carro(Carro outro) {
-        // a implementar
-        // Construtor de cópia (deep copy): copia todos os atributos
-        // primitivos e clona o array de pneus para evitar partilha de
-        // referências.
+        this.id = outro.id;
+        this.marca = outro.marca;
+        this.consumoMedio = outro.consumoMedio;
+        this.desgasteMedioPneus = outro.desgasteMedioPneus;
+        this.estado = outro.estado;
+        this.combustivelAtual = outro.combustivelAtual;
+        this.capacidadeDeposito = outro.capacidadeDeposito;
     }
 
     // ---------- Getters ----------
 
-    public String getId() { /* a implementar */ }
-    public String getMarca() { /* a implementar */ }
-    public String getModelo() { /* a implementar */ }
-    public double getConsumoMedio() { /* a implementar */ }
-    public double getDesgasteMedioPneus() { /* a implementar */ }
-    public EstadoCarro getEstado() { /* a implementar */ }
-    public double getCombustivelAtual() { /* a implementar */ }
-    public double getCapacidadeDeposito() { /* a implementar */ }
+    public String getId() {
+        return this.id;
+    }
+    
+    public String getMarca() {
+        return this.marca;
+    }
+    
+    public String getModelo() {
+        return this.modelo;
+    }
+    
+    public double getConsumoMedio() {
+        return this.consumoMedio;
+    }
+    
+    public double getDesgasteMedioPneus() {
+        return this.desgasteMedioPneus;
+    }
+    
+    public EstadoCarro getEstado() {
+        return this.estado;
+    }
+    
+    public double getCombustivelAtual() {
+        return this.combustivelAtual;
+    }
+    
+    public double getCapacidadeDeposito() { 
+        return this.capacidadeDeposito;
+    }
+
 
     public Pneu[] getPneus() {
-        // a implementar
-        // Devolve uma CÓPIA do array de pneus (deep copy) para preservar
-        // o encapsulamento — o exterior não deve poder mexer nos pneus
-        // sem passar pelos métodos da classe.
+        return this.pneus;
     }
 
     // ---------- Setters ----------
 
     public void setEstado(EstadoCarro estado) {
-        // a implementar
-        // Define o estado do carro. Validar que não é null.
+        this.estado = estado;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+    public void setConsumoMedio(double consumoMedio) {
+        this.consumoMedio = consumoMedio;
+    }
+
+    public void setDesgasteMedioPneus(double desgasteMedioPneus) {
+        this.desgasteMedioPneus = desgasteMedioPneus;
     }
 
     public void setCombustivelAtual(double combustivel) {
-        // a implementar
-        // Define o combustível, saturando entre 0 e capacidadeDeposito.
+        this.combustivelAtual = combustivel;
     }
 
-    // (os outros setters dos atributos imutáveis em corrida — id, marca,
-    // modelo — podem ser omitidos se quiseres torná-los efectivamente
-    // finais após o construtor)
+    public void setPneus(Pneu[] pneus) {
+        this.pneus = pneus;
+    }
+
+    public void setCapacidadeDeposito(double capacidadeDeposito) {
+        this.capacidadeDeposito = capacidadeDeposito;
+    }
 
     // ---------- Operações sobre o carro ----------
 
     public void irParaPista() {
-        // a implementar
-        // Transição GARAGEM/BOX -> PISTA. Atira excepção se o carro
-        // estiver AVARIADO ou já em PISTA.
+        switch (this.estado) {
+            case GARAGEM:
+                throw new IllegalStateException("Não é possível ir para a pista a partir da garagem.");
+            case BOX:
+                throw new IllegalStateException("Não é possível ir para a pista a partir dos boxes.");
+            case PISTA:
+                throw new IllegalStateException("O carro já está na pista.");
+            case AVARIADO:
+                throw new IllegalStateException("Não é possível ir para a pista com o carro avariado.");
+            default:
+                this.estado = EstadoCarro.PISTA;
+        }
     }
 
     public void chamarBoxes() {
-        // a implementar
-        // Transição PISTA -> BOX. Atira excepção se o carro não estiver
-        // em pista.
+        switch(this.estado) {
+            case GARAGEM:
+                throw new IllegalStateException("Não é possível chamar os boxes a partir da garagem.");
+            case BOX:
+                throw new IllegalStateException("O carro já está nos boxes.");
+            case PISTA:
+                this.estado = EstadoCarro.BOX;
+                break;
+            case AVARIADO:
+                this.estado = EstadoCarro.BOX;
+                break;
+            default:
+                throw new IllegalStateException("Estado desconhecido: " + this.estado);
+        }
     }
 
     public void recolher() {
-        // a implementar
-        // Transição BOX -> GARAGEM (fim de sessão).
+        switch(this.estado) {
+            case GARAGEM:
+                throw new IllegalStateException("O carro já está na garagem.");
+            case BOX:
+                this.estado = EstadoCarro.GARAGEM;
+                break;
+            case PISTA:
+                throw new IllegalStateException("Não é possível recolher o carro da pista diretamente para a garagem.");
+            case AVARIADO:
+                this.estado = EstadoCarro.GARAGEM;
+                break;
+            default:
+                throw new IllegalStateException("Estado desconhecido: " + this.estado);
+        }
     }
 
     public void trocarPneus(TipoPneu novoTipo) {
-        // a implementar
-        // Substitui os 4 pneus por pneus novos do tipo indicado. Só pode
-        // ser feito em BOX ou GARAGEM (não em PISTA).
+        for (int i = 0; i < NUMERO_PNEUS; i++) {
+            this.pneus[i] = new Pneu(novoTipo);
+        }
     }
 
     public void abastecer(double litros) {
